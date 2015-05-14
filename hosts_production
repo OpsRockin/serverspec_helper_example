@@ -1,0 +1,46 @@
+---
+shared_settings:
+  :ssh_opts:
+    :user: opera_singer
+    :keys: /Users/sawanoboriyu/.ssh/my_production_key
+    :port: 9022
+    :paranoid: false
+web:
+  :hosts:
+    - 10.48.1.11
+    - 10.48.1.12
+    - 10.48.2.11
+    - 10.48.2.12
+  :roles:
+    - common
+    - group
+    - user/system
+    - user/web
+    - fluentd
+    - mackerel-agent
+    - nagios/nrpe
+    - nginx
+db:
+  :hosts:
+    - 10.48.1.31
+    - 10.48.2.31
+  :roles:
+    - common
+    - group
+    - user/system
+    - user/db
+    - fluentd
+    - mackerel-agent
+    - nagios/nrpe
+press:
+  :hosts:
+    - 10.48.1.21
+    - 10.48.2.21
+  :roles:
+    - common
+    - group
+    - user/system
+    - user/press
+    - mackerel-agent
+    - nagios/nrpe
+    - nagios/server

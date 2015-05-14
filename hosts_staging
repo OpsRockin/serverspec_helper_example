@@ -1,0 +1,42 @@
+---
+shared_settings:
+  :ssh_opts:
+    :user: operator
+    :keys: /Users/sawanoboriyu/.ssh/my_staging_key
+    :port: 22
+    :paranoid: false
+web:
+  :hosts:
+    - 192.168.1.11
+    - 192.168.1.12
+  :roles:
+    - common
+    - group
+    - user/system
+    - user/web
+    - fluentd
+    - mackerel-agent
+    - nagios/nrpe
+    - nginx
+db:
+  :hosts:
+    - 192.168.1.31
+  :roles:
+    - common
+    - group
+    - user/system
+    - user/db
+    - fluentd
+    - mackerel-agent
+    - nagios/nrpe
+press:
+  :hosts:
+    - 192.168.1.21
+  :roles:
+    - common
+    - group
+    - user/system
+    - user/press
+    - mackerel-agent
+    - nagios/nrpe
+    - nagios/server
